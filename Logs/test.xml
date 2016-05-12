@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuite name="test" timestamp="2016-05-10T22:06:33+05:30" time="4.473777" tests="1" failures="1">
+  <testcase name="Tap Favourite" time="4.473777">
+    <failure>Error: AssertionException: &quot;Expected &lt;Activities3&gt; but received &lt;Activities&gt;&quot;</failure>
+  </testcase>
+</testsuite>
