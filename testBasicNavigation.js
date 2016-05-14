@@ -5,6 +5,21 @@
 
 test("Navigation Flow", function(target, app) {
      var window = app.mainWindow();
+     i=0
+     try {
+     //Reduce the value from i<10 to i<5, depending on the time as alert comes up
+     while(i<3) {
+     if (target.frontMostApp().alert().checkIsValid()) {
+     target.frontMostApp().alert().defaultButton().tap();
+     break;
+     } else {
+        target.delay(1);
+        i++;
+        }
+     }
+     } catch(e) {
+     UIALogger.logDebug("Exception occured"+e);
+     }
      //Testing Favourite Screen
      window.navigationBar().leftButton().tap();
      target.delay(2);

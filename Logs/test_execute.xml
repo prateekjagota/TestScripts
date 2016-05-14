@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuite name="test_execute" timestamp="2016-05-14T15:40:13+05:30" time="85.758357" tests="2" failures="0">
+  <testcase name="Tap Favourite" time="3.167889">
+  </testcase>
+  <testcase name="Navigation Flow" time="82.590468">
+  </testcase>
+</testsuite>

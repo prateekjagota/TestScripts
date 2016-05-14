@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<testsuite name="testBasicNavigation" timestamp="2016-05-14T15:13:08+05:30" time="81.038592" tests="1" failures="0">
+  <testcase name="Navigation Flow" time="81.038592">
+  </testcase>
+</testsuite>
