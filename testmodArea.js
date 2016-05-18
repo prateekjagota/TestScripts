@@ -1,6 +1,8 @@
 #import "../TestScripts/tuneup_js/tuneup.js"
 #import "config.js"
 
+//Script not working as of now due to inablity to delete areas [ tapping settings button is not feasible]
+
 test("To test area addition", function(target, app) {
      var window = app.mainWindow();
      window.navigationBar().leftButton().tap();
