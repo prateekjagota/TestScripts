@@ -1,3 +1,5 @@
 area_name="LightTest"
 device_name="Device1"
 place_name="test_place"
+app_version="App version 2.1 (129)"
+cloud_url="csrmesh-test.csrlbs.com"

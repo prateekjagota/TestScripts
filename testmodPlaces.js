@@ -12,6 +12,7 @@ test("To test places addition", function(target, app) {
      window.tableViews()[1].cells()["+ Create a new place"].tap();
      target.delay(2);
      window.textFields()[0].textFields()[0].tap();
+     target.delay(2);
      if (target.frontMostApp().keyboard().isVisible() == 1) {
      target.frontMostApp().keyboard().typeString(place_name);
      target.delay(2);
