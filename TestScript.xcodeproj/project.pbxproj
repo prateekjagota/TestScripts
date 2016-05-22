@@ -16,6 +16,9 @@
 		6ECC2C711CE37F9C005C20CF /* testmodArea.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testmodArea.js; sourceTree = "<group>"; };
 		6ECD0DF31CEE14960032A6E4 /* testAppVersion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testAppVersion.js; sourceTree = "<group>"; };
 		6ECD0DF41CEE163A0032A6E4 /* testDevOps.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testDevOps.js; sourceTree = "<group>"; };
+		6EFA0F611CF0AAD100ECD33D /* testCleanUp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testCleanUp.js; sourceTree = "<group>"; };
+		6EFA0F621CF0AB0C00ECD33D /* temp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = temp.js; path = ../temp.js; sourceTree = "<group>"; };
+		6EFA0F631CF0D01000ECD33D /* testDevices.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testDevices.js; sourceTree = "<group>"; };
 		6EFBA3A81CECB24000AAB6A5 /* testmodPlaces.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testmodPlaces.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -27,10 +30,13 @@
 				6E846B431CE72BC7007BBFBF /* test_execute.js */,
 				6ECC2C701CE37EF9005C20CF /* config.js */,
 				6ECC2C711CE37F9C005C20CF /* testmodArea.js */,
+				6EFA0F611CF0AAD100ECD33D /* testCleanUp.js */,
 				6EFBA3A81CECB24000AAB6A5 /* testmodPlaces.js */,
+				6EFA0F631CF0D01000ECD33D /* testDevices.js */,
 				6E98508F1CE4C6D0001C70B0 /* testBasicNavigation.js */,
 				6ECD0DF31CEE14960032A6E4 /* testAppVersion.js */,
 				6ECD0DF41CEE163A0032A6E4 /* testDevOps.js */,
+				6EFA0F621CF0AB0C00ECD33D /* temp.js */,
 				6E846B3B1CE71CA4007BBFBF /* sanity.sh */,
 				6E4760741CE227F300562973 /* tuneup_js */,
 			);

@@ -3,19 +3,18 @@
 
 test("To test Developer Options Screen", function(target, app) {
      var window = app.mainWindow();
-     window.navigationBar().leftButton().tap();
-     target.delay(3);
+     window.navigationBar().leftButton().vtap();
      window.tableViews()[0].cells()["Developer options"].scrollToVisible();
+     window.tableViews()[0].cells()["Developer options"].vtap();
+     window.scrollViews()[0].textFields()[0].textFields()[0].vtap();
      target.delay(2);
-     window.tableViews()[0].cells()["Developer options"].tap();
-     target.delay(2);
-     window.scrollViews()[0].textFields()[0].textFields()[0].tap();
-     target.delay(2);
-     if (target.frontMostApp().keyboard().isVisible() == 1) {
-     target.frontMostApp().keyboard().keys()["Delete"].touchAndHold(5);
-     target.frontMostApp().keyboard().typeString(cloud_url);
-     target.delay(2);
+     var dkeyboard = target.frontMostApp().keyboard();
+     if (dkeyboard.isVisible() == 1) {
+     //Adding delay in between the keys tapping, added 1sec of delay can reduce it to 0.5 or 0.1 depending on machine performance, by default its 0.03
+     dkeyboard.setInterKeyDelay(0.3);
+     dkeyboard.keys()["Delete"].touchAndHold(5);
+     dkeyboard.typeString(cloud_url);
      }
-     window.navigationBar().rightButton().tap();
+     window.navigationBar().rightButton().vtap();
      target.delay(2);
      });

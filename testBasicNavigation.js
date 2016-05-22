@@ -1,4 +1,5 @@
 #import "../TestScripts/tuneup_js/tuneup.js"
+#import "../TestScripts/tuneup_js/uiautomation-ext.js"
 #import "config.js"
 
 //Script will execute on start of automation suite, to verify basic navigation flow.
@@ -8,9 +9,9 @@ test("Navigation Flow", function(target, app) {
      i=0
      try {
      //Reduce the value from i<10 to i<5, depending on the time as alert comes up
-     while(i<3) {
+     while(i<1) {
      if (target.frontMostApp().alert().checkIsValid()) {
-     target.frontMostApp().alert().defaultButton().tap();
+     target.frontMostApp().alert().defaultButton().vtap();
      break;
      } else {
         target.delay(1);
@@ -21,92 +22,69 @@ test("Navigation Flow", function(target, app) {
      UIALogger.logDebug("Exception occured"+e);
      }
      //Testing Favourite Screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["Favourites"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["Favourites"].vtap();
      assertEquals("Favourites", window.navigationBar().name());
-     target.delay(3);
      assertEquals("Activities", window.segmentedControls()[0].buttons()[0].name());
      assertEquals("Devices & Areas", window.segmentedControls()[0].buttons()[1].name());
-     window.segmentedControls()[0].buttons()["Activities"].tap();
-     window.segmentedControls()[0].buttons()["Devices & Areas"].tap();
+     window.segmentedControls()[0].buttons()["Activities"].vtap();
+     window.segmentedControls()[0].buttons()["Devices & Areas"].vtap();
      //Favourite screen navigation complete
      
      //Testing Events Screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["Events"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["Events"].vtap();
      assertEquals("Events", window.navigationBar().name());
-     target.delay(3);
      assertEquals("ALL", window.segmentedControls()[0].buttons()[0].name());
      assertEquals("LIGHT COLOR", window.segmentedControls()[0].buttons()[1].name());
      assertEquals("LIGHT POWER", window.segmentedControls()[0].buttons()[2].name());
      assertEquals("HEATING", window.segmentedControls()[0].buttons()[3].name());
-     window.segmentedControls()[0].buttons()["ALL"].tap();
-     window.segmentedControls()[0].buttons()["LIGHT COLOR"].tap();
-     window.segmentedControls()[0].buttons()["LIGHT POWER"].tap();
-     window.segmentedControls()[0].buttons()["HEATING"].tap();
-     window.toolbar().buttons()["Add"].tap();
-     target.delay(3);
-     target.frontMostApp().actionSheet().collectionViews()[0].cells()["Cancel"].buttons()["Cancel"].tap();
-     target.delay(2);
+     window.segmentedControls()[0].buttons()["ALL"].vtap();
+     window.segmentedControls()[0].buttons()["LIGHT COLOR"].vtap();
+     window.segmentedControls()[0].buttons()["LIGHT POWER"].vtap();
+     window.segmentedControls()[0].buttons()["HEATING"].vtap();
+     window.toolbar().buttons()["Add"].vtap();
+     target.frontMostApp().actionSheet().collectionViews()[0].cells()["Cancel"].buttons()["Cancel"].vtap();
      
      //Testing Areas Screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["Areas"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["Areas"].vtap();
      assertEquals("Areas", window.navigationBar().name());
-     assertTrue(window.tableViews()[2].searchBars()[0].checkIsValid(), "Search bar exists");
-     window.tableViews()[2].searchBars()[0].tap();
-     target.delay(2);
-     window.buttons()["Cancel"].tap();
-     target.delay(2);
-     target.frontMostApp().toolbar().buttons()["ADD"].tap();
-     target.delay(2);
-     target.frontMostApp().navigationBar().leftButton().tap();
-     target.delay(2);
+     assertTrue(window.navigationBar().buttons()["Search"].checkIsValid(), "Search bar exists");
+     window.navigationBar().buttons()["Search"].vtap();
+     window.buttons()["Cancel"].vtap();
+     target.frontMostApp().toolbar().buttons()["ADD"].vtap();
+     target.frontMostApp().navigationBar().leftButton().vtap();
+     
 
      
      //Testting CSRmesh devices screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["CSRmesh devices"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["CSRmesh devices"].vtap();
      assertEquals("CSRmesh Devices", window.navigationBar().name());
      assertTrue(window.tableViews()[2].searchBars()[0].checkIsValid(), "Search bar exists");
-     window.tableViews()[2].searchBars()[0].tap();
-     target.delay(2);
-     window.buttons()["Cancel"].tap();
-     target.delay(2);
+     window.tableViews()[2].searchBars()[0].vtap();
+     window.buttons()["Cancel"].vtap();
+     
 
      
      //Testing Controllers screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["Controllers"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["Controllers"].vtap();
      assertEquals("Controllers", window.navigationBar().name());
-     window.toolbar().buttons()["Add"].tap();
-     target.delay(2);
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
+     window.toolbar().buttons()["Add"].vtap();
+     window.navigationBar().leftButton().vtap();
+     
      
      //Testing Users screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["Users"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["Users"].vtap();
      assertEquals("Users", window.navigationBar().name());
      
      
      //Testing Import place screen
-     window.navigationBar().leftButton().tap();
-     target.delay(2);
-     window.tableViews()[0].cells()["Import place"].tap();
-     target.delay(2);
+     window.navigationBar().leftButton().vtap();
+     window.tableViews()[0].cells()["Import place"].vtap();
      assertEquals("Export/Import Database", window.navigationBar().name());
      
      
