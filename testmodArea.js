@@ -71,7 +71,7 @@ test("To test assigning device to area", function(target, app) {
      window.tableViews()[2].groups()["DEVICES"].buttons()["EDIT"].vtap();
      window.tableViews()[2].cells()[device_name1].vtap();
      window.navigationBar().rightButton().vtap();
-     //assertEquals(device_name1,window.tableViews()[2].cells()[0].staticTexts()[0].name())
+     assertEquals(device_name1,window.tableViews()[2].cells()[0].staticTexts()[0].name())
      target.delay(6);
      window.navigationBar().rightButton().vtap();
      window.navigationBar().leftButton().vtap();
