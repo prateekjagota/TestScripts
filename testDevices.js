@@ -3,9 +3,7 @@
 #import "config.js"
 
 function device_addition(window,device_name,device_udid,device_pairing_code) {
-    //window.navigationBar().leftButton().vtap();
-    //window.tableViews()[0].cells()["CSRmesh devices"].vtap();
-    //Adding First device
+ //Adding First device
     window.toolbar().buttons()["ADD"].vtap();
     target.frontMostApp().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].vtap();
     target.delay(10);
@@ -25,11 +23,7 @@ function device_addition(window,device_name,device_udid,device_pairing_code) {
     if (device_pairing_code != null) {
         window.popover().textFields()[0].vtap();
         target.delay(2);
-        var dkeyboard = target.frontMostApp().keyboard();
-        if (dkeyboard.isVisible() == 1) {
-            dkeyboard.setInterKeyDelay(0.3);
-            dkeyboard.typeString(device_pairing_code);
-        }
+        window.popover().textFields()[0].setValue(device_pairing_code);
     }
     window.popover().buttons()[1].vtap();
     try {
@@ -48,6 +42,6 @@ function device_addition(window,device_name,device_udid,device_pairing_code) {
 
 test("To test devices addition", function(target, app) {
      var window = app.mainWindow();
-     //device_addition(device_name1,device_name1_udid,device1_pairing_code);
+     device_addition(window, device_name1,device_name1_udid,device1_pairing_code);
      device_addition(window, device_name2,device_name2_udid,device2_pairing_code);
      });

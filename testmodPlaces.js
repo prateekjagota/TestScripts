@@ -11,13 +11,11 @@ test("To test places addition", function(target, app) {
      window.tableViews()[1].cells()["+ Create a new place"].vtap();
      window.textFields()[0].textFields()[0].vtap();
      target.delay(2);
-     var dkeyboard = target.frontMostApp().keyboard();
-     if (dkeyboard.isVisible() == 1) {
-     dkeyboard.setInterKeyDelay(0.3);
-     dkeyboard.typeString(place_name);
+     window.textFields()[0].textFields()[0].setValue(place_name)
      window.secureTextFields()[0].secureTextFields()[0].vtap();
-     dkeyboard.typeString("qwerty\n");
-     }
+     target.delay(2);
+     window.secureTextFields()[0].secureTextFields()[0].setValue("qwerty");
+     var dkeyboard = target.frontMostApp().keyboard();
      window.navigationBar().rightButton().vtap();
      window.navigationBar().leftButton().vtap();
      assertEquals(place_name, window.tableViews()[1].cells()[1].name());
@@ -34,16 +32,11 @@ test("To test places editing", function(target, app) {
      window.tableViews()[2].cells()[place_name].vtap();
      window.textFields()[0].textFields()[0].vtap();
      target.delay(2);
-     var dkeyboard = target.frontMostApp().keyboard();
-     if (dkeyboard.isVisible() == 1) {
-     dkeyboard.setInterKeyDelay(0.3);
-     dkeyboard.keys()["Delete"].touchAndHold(5);
-     dkeyboard.typeString(place_name+"_edited");
+     window.textFields()[0].textFields()[0].setValue(place_name+"_edited");
      window.secureTextFields()[0].secureTextFields()[0].vtap();
-     dkeyboard.keys()["Delete"].touchAndHold(5);
-     dkeyboard.typeString("qwerty_edited\n");
+     target.delay(2);
+     window.secureTextFields()[0].secureTextFields()[0].setValue("qwerty_edited");
      window.buttons()[0].vtap();
-     }
      window.navigationBar().rightButton().vtap();
      window.navigationBar().leftButton().vtap();
      window.navigationBar().leftButton().vtap();
@@ -58,13 +51,10 @@ test("To test search of existing places", function(target, app) {
      window.navigationBar().leftButton().vtap();
      window.buttons()["menuSwitch"].vtap();
      window.toolbar().buttons()["Manage places"].vtap();
-     window.navigationBar().rightButton().vtap();
+     window.navigationBar().buttons()["Search"].vtap();
+     window.tableViews()[2].searchBars()[0].setValue(place_name+"_edited");
+     target.frontMostApp().keyboard().typeString("\n");
      target.delay(2);
-     var dkeyboard = target.frontMostApp().keyboard();
-     if (dkeyboard.isVisible() == 1) {
-     dkeyboard.setInterKeyDelay(0.3);
-     dkeyboard.typeString(place_name+"_edited\n");
-     }
      assertEquals(place_name+"_edited", window.tableViews()[1].cells()[1].name());
      window.tableViews()[2].buttons()["Cancel"].vtap();
      window.navigationBar().leftButton().vtap();

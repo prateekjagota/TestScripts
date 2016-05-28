@@ -11,13 +11,7 @@ test("To test area addition", function(target, app) {
      window.toolbar().buttons()["ADD"].vtap();
      window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
      target.delay(2);
-     var dkeyboard = target.frontMostApp().keyboard();
-     if (dkeyboard.isVisible() == 1) {
-        dkeyboard.setInterKeyDelay(0.3);
-        dkeyboard.keys()["Delete"].touchAndHold(5);
-        dkeyboard.typeString(area_name);
-        dkeyboard.typeString("\n");
-     }
+     window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name);
      window.navigationBar().rightButton().vtap();
      target.delay(3);
      assertTrue(window.tableViews()[2].cells()[area_name].checkIsValid(), "Area Added Successfully");
@@ -40,13 +34,7 @@ test("To test area editing", function(target, app) {
      }
      window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
      target.delay(2);
-     var dkeyboard = target.frontMostApp().keyboard();
-     if (dkeyboard.isVisible() == 1) {
-     dkeyboard.setInterKeyDelay(0.3);
-     dkeyboard.keys()["Delete"].touchAndHold(5);
-     dkeyboard.typeString(area_name+"_edited");
-     dkeyboard.typeString("\n");
-     }
+     window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name+"_edited");
      //Assign Device
     window.navigationBar().rightButton().vtap();
      assertTrue(window.tableViews()[2].cells()[area_name+"_edited"].isVisible(), "Area Edited Successfully");
