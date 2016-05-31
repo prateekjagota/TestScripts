@@ -14,10 +14,20 @@ test("To test devices addition", function(target, app) {
 
 test("To test device search", function(target, app) {
      var window = app.mainWindow();
-     device_search(window, device_name4);
+     device_search(window, device_name1);
      });
 
-test("To test device editing", function(target, app) {
+test("To test editing of Light", function(target, app) {
+     var window = app.mainWindow();
+     device_edit(window, device_name1);
+    });
+
+test("To test editing of Heater", function(target, app) {
+     var window = app.mainWindow();
+     device_edit(window, device_name3);
+     });
+
+test("To test editing of Sensor", function(target, app) {
      var window = app.mainWindow();
      device_edit(window, device_name4);
-    });
+     });

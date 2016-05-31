@@ -46,6 +46,9 @@ function device_search(window,device_name) {
     window.tableViews()[0].searchBars()[0].vtap();
     window.searchBars()[0].searchBars()[0].setValue(device_name);
     assertTrue(window.tableViews()[0].cells()[device_name].checkIsValid(), "Device Visible after search");
+    window.buttons()["Cancel"].vtap();
+    target.delay(2);
+    
 }
 
 //Edit Device
@@ -58,6 +61,20 @@ function device_edit(window,device_name) {
             window.tableViews()[0].cells()[i].buttons()[0].vtap();
         }
     }
+    window.textFields()[0].textFields()[0].vtap();
+    window.textFields()[0].textFields()[0].setValue(device_name+"_edited");
+    window.navigationBar().rightButton().vtap();
+    target.delay(2);
+    cell_length=window.tableViews()[0].cells().length;
+    for(var i =0;i<cell_length;i++) {
+        if (window.tableViews()[0].cells()[i].name() == device_name+"_edited") {
+            window.tableViews()[0].cells()[i].buttons()[0].vtap();
+        }
+    }
+    window.textFields()[0].textFields()[0].vtap();
+    window.textFields()[0].textFields()[0].setValue(device_name);
+    window.navigationBar().rightButton().vtap();
+    target.delay(2);
 }
 
 //Create Areas for testbed setup
