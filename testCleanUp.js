@@ -1,6 +1,7 @@
 #import "../TestScripts/tuneup_js/tuneup.js"
 #import "../TestScripts/tuneup_js/uiautomation-ext.js"
 #import "config.js"
+#import "UtilityFunctions.js"
 
 //Script cleans up devices and areas screen
 
@@ -28,10 +29,14 @@ test("Clean up devices and areas screen", function(target, app) {
      UIALogger.logDebug("Area length: "+area_length);
      if (area_length > 0) {
      for (var j =0;j < area_length;j++) {
+     try {
      window.tableViews()[2].cells()[0].buttons()[0].vtap();
      window.toolbar().buttons()["DELETE"].vtap();
      UIALogger.logDebug("Area deleted: "+ (j+1));
      target.delay(2);
+     } catch(e) {}
      }
      }
+     UIALogger.logMessage("Creating areas as part of Test Bed setup..")
+     add_areas(window);
      });
