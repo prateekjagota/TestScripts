@@ -43,8 +43,11 @@ function device_addition(window,device_name,device_udid,device_pairing_code) {
 function device_search(window,device_name) {
     //window.navigationBar().leftButton().vtap();
     //window.tableViews()[0].cells()["CSRmesh devices"].vtap();
-    window.tableViews()[0].searchBars()[0].vtap();
-    window.searchBars()[0].searchBars()[0].setValue(device_name);
+    //window.tableViews()[0].searchBars()[0].vtap();
+    window.navigationBar().rightButton().vtap();
+    //window.searchBars()[0].searchBars()[0].setValue(device_name);
+    window.searchBars()["Search"].vtap();
+    window.searchBars()["Search"].setValue(device_name);
     assertTrue(window.tableViews()[0].cells()[device_name].checkIsValid(), "Device Visible after search");
     window.buttons()["Cancel"].vtap();
     target.delay(2);
@@ -61,8 +64,10 @@ function device_edit(window,device_name) {
             window.tableViews()[0].cells()[i].buttons()[0].vtap();
         }
     }
-    window.textFields()[0].textFields()[0].vtap();
-    window.textFields()[0].textFields()[0].setValue(device_name+"_edited");
+    //window.textFields()[0].textFields()[0].vtap();
+    window.textFields()[0].vtap();
+    //window.textFields()[0].textFields()[0].setValue(device_name+"_edited");
+    window.textFields()[0].setValue(device_name+"_edited");
     window.navigationBar().rightButton().vtap();
     target.delay(2);
     cell_length=window.tableViews()[0].cells().length;
@@ -71,8 +76,10 @@ function device_edit(window,device_name) {
             window.tableViews()[0].cells()[i].buttons()[0].vtap();
         }
     }
-    window.textFields()[0].textFields()[0].vtap();
-    window.textFields()[0].textFields()[0].setValue(device_name);
+    //window.textFields()[0].textFields()[0].vtap();
+    window.textFields()[0].vtap();
+    //window.textFields()[0].textFields()[0].setValue(device_name);
+    window.textFields()[0].setValue(device_name);
     window.navigationBar().rightButton().vtap();
     target.delay(2);
 }
@@ -82,25 +89,33 @@ function device_edit(window,device_name) {
 function add_areas(window) {
     window.navigationBar().leftButton().vtap();
     window.tableViews()[0].cells()["Areas"].vtap();
-    window.toolbar().buttons()["ADD"].vtap();
-    window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+    window.toolbars()[2].buttons()["ADD"].vtap();
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+    window.textFields()["areaTitle"].vtap();
     target.delay(2);
-    window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name1);
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name1);
+    window.textFields()["areaTitle"].setValue(area_name1);
     window.navigationBar().rightButton().vtap();
-    window.toolbar().buttons()["ADD"].vtap();
-    window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+    window.toolbars()[2].buttons()["ADD"].vtap();
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+    window.textFields()["areaTitle"].vtap();
     target.delay(2);
-    window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name2);
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name2);
+    window.textFields()["areaTitle"].setValue(area_name2);
     window.navigationBar().rightButton().vtap();
-    window.toolbar().buttons()["ADD"].vtap();
-    window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+    window.toolbars()[2].buttons()["ADD"].vtap();
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+    window.textFields()["areaTitle"].vtap();
     target.delay(2);
-    window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name3);
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name3);
+    window.textFields()["areaTitle"].setValue(area_name3);
     window.navigationBar().rightButton().vtap();
-    window.toolbar().buttons()["ADD"].vtap();
+    window.toolbars()[2].buttons()["ADD"].vtap();
     window.textFields()["areaTitle"].textFields()["areaTitle"].vtap();
+     window.textFields()["areaTitle"].vtap();
     target.delay(2);
-    window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name4);
+    //window.textFields()["areaTitle"].textFields()["areaTitle"].setValue(area_name4);
+    window.textFields()["areaTitle"].setValue(area_name4);
     window.navigationBar().rightButton().vtap();
   
 }
@@ -129,10 +144,10 @@ function control_light_W(window,device_name,change_value) {
     UIALogger.logMessage("Drag Value "+change_value/100);
     UIALogger.logMessage("Current Value "+ window.popover().sliders()[0].value());
     try {
-    window.popover().sliders()[0].dragToValue(change_value/100);
+        window.popover().sliders()[0].dragToValue(change_value/100);
     }
     catch(e) {
-    UIALogger.logMessage("Unable to drag, value after dragging "+ window.popover().sliders()[0].value());
+        UIALogger.logMessage("Unable to drag, value after dragging "+ window.popover().sliders()[0].value());
     }
     window.popover().buttons()["Done"].vtap();
     window.navigationBar().leftButton().vtap();
@@ -157,4 +172,5 @@ function control_light_RGB(window,device_name,change_value) {
     window.popover().buttons()["Done"].vtap();
     window.navigationBar().leftButton().vtap();
 }
+
 

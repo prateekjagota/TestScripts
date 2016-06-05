@@ -4,7 +4,7 @@
 #import "UtilityFunctions.js"
 
 
-/*test("To test devices addition", function(target, app) {
+test("To test devices addition", function(target, app) {
      var window = app.mainWindow();
      device_addition(window, device_name1,device_name1_udid,device1_pairing_code);
      device_addition(window, device_name2,device_name2_udid,device2_pairing_code);
@@ -30,7 +30,7 @@ test("To test editing of Heater", function(target, app) {
 test("To test editing of Sensor", function(target, app) {
      var window = app.mainWindow();
      device_edit(window, device_name4);
-     });*/
+     });
 
 test("To test controlling of Light", function(target, app) {
      var window = app.mainWindow();

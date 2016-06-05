@@ -31,7 +31,7 @@ test("Clean up devices and areas screen", function(target, app) {
      for (var j =0;j < area_length;j++) {
      try {
      window.tableViews()[2].cells()[0].buttons()[0].vtap();
-     window.toolbar().buttons()["DELETE"].vtap();
+     window.toolbars()[2].buttons()["DELETE"].vtap();
      UIALogger.logDebug("Area deleted: "+ (j+1));
      target.delay(2);
      } catch(e) {}
