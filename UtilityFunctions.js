@@ -104,3 +104,57 @@ function add_areas(window) {
     window.navigationBar().rightButton().vtap();
   
 }
+
+//Control Devices
+
+function control_light_brightness(window,device_name,change_value) {
+    window.tableViews()[0].cells()[device_name].scrollToVisible();
+    window.tableViews()[0].cells()[device_name].vtap();
+    if (window.switches()[0].value() == 0) {
+        window.switches()[0].setValue(1);
+    }
+    UIALogger.logMessage("Drag Value "+change_value/100)
+    window.sliders()[0].dragToValue(change_value/100);
+    UIALogger.logMessage("Value after dragging "+ window.sliders()[0].value());
+    window.navigationBar().leftButton().vtap();
+}
+
+function control_light_W(window,device_name,change_value) {
+    window.tableViews()[0].cells()[device_name].scrollToVisible();
+    window.tableViews()[0].cells()[device_name].vtap();
+    if (window.switches()[0].value() == 0) {
+        window.switches()[0].setValue(1);
+    }
+    window.buttons()["W"].vtap();
+    UIALogger.logMessage("Drag Value "+change_value/100);
+    UIALogger.logMessage("Current Value "+ window.popover().sliders()[0].value());
+    try {
+    window.popover().sliders()[0].dragToValue(change_value/100);
+    }
+    catch(e) {
+    UIALogger.logMessage("Unable to drag, value after dragging "+ window.popover().sliders()[0].value());
+    }
+    window.popover().buttons()["Done"].vtap();
+    window.navigationBar().leftButton().vtap();
+}
+
+function control_light_RGB(window,device_name,change_value) {
+    //Change value of RGB should be Red_Green_blue eg: 70_400_50
+    window.tableViews()[0].cells()[device_name].scrollToVisible();
+    window.tableViews()[0].cells()[device_name].vtap();
+    if (window.switches()[0].value() == 0) {
+        window.switches()[0].setValue(1);
+    }
+    change_value_R = change_value.split("_")[0]
+    change_value_G = change_value.split("_")[1]
+    change_value_B = change_value.split("_")[2]
+    
+    UIALogger.logMessage("Values "+ change_value_R +" " + change_value_G + " "+ change_value_B)
+    window.buttons()["RGB"].vtap();
+    window.popover().textFields()[0].setValue(change_value_R);
+    window.popover().textFields()[1].setValue(change_value_G);
+    window.popover().textFields()[2].setValue(change_value_B);
+    window.popover().buttons()["Done"].vtap();
+    window.navigationBar().leftButton().vtap();
+}
+

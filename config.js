@@ -17,3 +17,9 @@ device3_pairing_code=null
 device_name4="Sensor 7"
 device_name4_udid=""
 device4_pairing_code=null
+//Control device name
+control_dev_light="Light 2"
+light_brightness="77"
+light_W="35"
+//Change value of RGB should be Red_Green_blue eg: 70_400_50
+light_RGB="70_400_50"
