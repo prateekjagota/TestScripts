@@ -173,4 +173,31 @@ function control_light_RGB(window,device_name,change_value) {
     window.navigationBar().leftButton().vtap();
 }
 
+// Setting-Up Gateway-Bridge
+
+function device_addBridge(window,device_name) {
+    window.navigationBar().leftButton().vtap();
+    window.tableViews()[0].cells()["Developer options"].scrollToVisible();
+    window.tableViews()[0].cells()["Developer options"].vtap();
+    window.toolbar().buttons()["Select Bridge"].vtap();
+    target.delay(10);
+    var counter=0
+    for (counter=0;counter<=10;counter++) {
+        target.delay(2);
+        UIALogger.logMessage("Elements Visible: "+target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].name())
+        target.delay(1);
+        UIALogger.logMessage("Index "+counter);
+        if (target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].staticTexts()[0].name() == device_name) {
+            UIALogger.logMessage("Device Found..");
+            target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].staticTexts()[0].vtap();
+            break;
+        }
+    }
+    target.delay(15);
+    window.navigationBar().leftButton().vtap();
+    window.navigationBar().rightButton().vtap();
+    window.tableViews()[0].cells()["CSRmesh devices"].vtap();
+}
+
+
 
