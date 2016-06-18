@@ -177,7 +177,6 @@ function control_light_RGB(window,device_name,change_value) {
 }
 
 // Setting-Up Gateway-Bridge
-
 function device_addBridge(window,device_name) {
     window.navigationBar().leftButton().vtap();
     window.tableViews()[0].cells()["Developer options"].scrollToVisible();
@@ -205,6 +204,4 @@ function device_addBridge(window,device_name) {
     window.tableViews()[0].cells()["CSRmesh devices"].vtap();
     target.delay(5);
 }
-
-
 
