@@ -3,22 +3,25 @@
 //Device Addition
 function device_addition(window,device_name,device_udid,device_pairing_code) {
     //Adding First device
-    window.toolbar().buttons()["ADD"].vtap();
-    target.frontMostApp().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].vtap();
+    window.toolbars()[2].buttons()["ADD"].tap();
+    //window.toolbar().buttons()["ADD"].vtap();
+    target.frontMostApp().mainWindow().popover().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].tap();
+    //target.frontMostApp().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].vtap();
     target.delay(10);
     var counter=0
     for (counter=0;counter<=10;counter++) {
         target.delay(2);
-        UIALogger.logMessage("Elements Visible: "+target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].name())
+        UIALogger.logMessage("Elements Visible: "+target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].name())
         target.delay(1);
         UIALogger.logMessage("Index "+counter);
-        if (target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].staticTexts()[1].name() == device_udid) {
+        if (target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].staticTexts()[1].name() == device_udid) {
             UIALogger.logMessage("Device Found..");
-            target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].staticTexts()[1].vtap();
+            target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].staticTexts()[1].vtap();
             break;
         }
     }
-    window.toolbar().buttons()["ASSOCIATE"].vtap();
+    target.delay(2);
+    target.frontMostApp().mainWindow().toolbars()[2].buttons()["ASSOCIATE"].vtap();
     if (device_pairing_code != null) {
         window.popover().textFields()[0].vtap();
         target.delay(2);
@@ -190,13 +193,17 @@ function device_addBridge(window,device_name) {
         if (target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].staticTexts()[0].name() == device_name) {
             UIALogger.logMessage("Device Found..");
             target.frontMostApp().mainWindow().tableViews()[0].cells()[counter].staticTexts()[0].vtap();
+            try {
+                target.frontMostApp().alert().defaultButton().tap();
+            } catch(e) {}
             break;
         }
     }
-    target.delay(15);
+    target.delay(20);
     window.navigationBar().leftButton().vtap();
     window.navigationBar().rightButton().vtap();
     window.tableViews()[0].cells()["CSRmesh devices"].vtap();
+    target.delay(5);
 }
 
 
