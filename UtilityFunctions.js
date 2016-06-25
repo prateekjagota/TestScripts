@@ -5,17 +5,19 @@ function device_addition(window,device_name,device_udid,device_pairing_code) {
     //Adding First device
     window.toolbars()[2].buttons()["ADD"].tap();
     //window.toolbar().buttons()["ADD"].vtap();
-    target.frontMostApp().mainWindow().popover().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].tap();
+    target.frontMostApp().actionSheet().collectionViews()[0].cells()["Detected Devices List"].tap();
+    //target.frontMostApp().mainWindow().popover().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].tap();
     //target.frontMostApp().actionSheet().collectionViews()[0].cells()["Detected Devices List"].buttons()["Detected Devices List"].vtap();
     target.delay(10);
     var counter=0
-    for (counter=0;counter<=10;counter++) {
+    for (counter=0;counter<=15;counter++) {
         target.delay(2);
         UIALogger.logMessage("Elements Visible: "+target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].name())
         target.delay(1);
         UIALogger.logMessage("Index "+counter);
         if (target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].staticTexts()[1].name() == device_udid) {
             UIALogger.logMessage("Device Found..");
+            target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].staticTexts()[1].scrollToVisible();
             target.frontMostApp().mainWindow().tableViews()[2].cells()[counter].staticTexts()[1].vtap();
             break;
         }
@@ -39,7 +41,7 @@ function device_addition(window,device_name,device_udid,device_pairing_code) {
     window.textFields()[0].setValue(device_name);
     window.navigationBar().rightButton().vtap();
     target.delay(3);
-    assertTrue(window.tableViews()[0].cells()[device_name].checkIsValid(), "Device Added Successfully");
+    assertTrue(window.tableViews()[2].cells()[device_name].checkIsValid(), "Device Added Successfully");
 }
 
 //Search Device
@@ -51,7 +53,7 @@ function device_search(window,device_name) {
     //window.searchBars()[0].searchBars()[0].setValue(device_name);
     window.searchBars()["Search"].vtap();
     window.searchBars()["Search"].setValue(device_name);
-    assertTrue(window.tableViews()[0].cells()[device_name].checkIsValid(), "Device Visible after search");
+    assertTrue(window.tableViews()[2].cells()[device_name].checkIsValid(), "Device Visible after search");
     window.buttons()["Cancel"].vtap();
     target.delay(2);
     
@@ -59,12 +61,12 @@ function device_search(window,device_name) {
 
 //Edit Device
 function device_edit(window,device_name) {
-    window.tableViews()[0].cells()[device_name].scrollToVisible();
+    window.tableViews()[2].cells()[device_name].scrollToVisible();
     //loop to get index of settings button
-    cell_length=window.tableViews()[0].cells().length;
+    cell_length=window.tableViews()[2].cells().length;
     for(var i =0;i<cell_length;i++) {
-        if (window.tableViews()[0].cells()[i].name() == device_name) {
-            window.tableViews()[0].cells()[i].buttons()[0].vtap();
+        if (window.tableViews()[2].cells()[i].name() == device_name) {
+            window.tableViews()[2].cells()[i].buttons()[0].vtap();
         }
     }
     //window.textFields()[0].textFields()[0].vtap();
@@ -75,8 +77,8 @@ function device_edit(window,device_name) {
     target.delay(2);
     cell_length=window.tableViews()[0].cells().length;
     for(var i =0;i<cell_length;i++) {
-        if (window.tableViews()[0].cells()[i].name() == device_name+"_edited") {
-            window.tableViews()[0].cells()[i].buttons()[0].vtap();
+        if (window.tableViews()[2].cells()[i].name() == device_name+"_edited") {
+            window.tableViews()[2].cells()[i].buttons()[0].vtap();
         }
     }
     //window.textFields()[0].textFields()[0].vtap();
@@ -126,8 +128,8 @@ function add_areas(window) {
 //Control Devices
 
 function control_light_brightness(window,device_name,change_value) {
-    window.tableViews()[0].cells()[device_name].scrollToVisible();
-    window.tableViews()[0].cells()[device_name].vtap();
+    window.tableViews()[2].cells()[device_name].scrollToVisible();
+    window.tableViews()[2].cells()[device_name].vtap();
     if (window.switches()[0].value() == 0) {
         window.switches()[0].setValue(1);
     }
@@ -138,8 +140,8 @@ function control_light_brightness(window,device_name,change_value) {
 }
 
 function control_light_W(window,device_name,change_value) {
-    window.tableViews()[0].cells()[device_name].scrollToVisible();
-    window.tableViews()[0].cells()[device_name].vtap();
+    window.tableViews()[2].cells()[device_name].scrollToVisible();
+    window.tableViews()[2].cells()[device_name].vtap();
     if (window.switches()[0].value() == 0) {
         window.switches()[0].setValue(1);
     }
@@ -158,8 +160,8 @@ function control_light_W(window,device_name,change_value) {
 
 function control_light_RGB(window,device_name,change_value) {
     //Change value of RGB should be Red_Green_blue eg: 70_400_50
-    window.tableViews()[0].cells()[device_name].scrollToVisible();
-    window.tableViews()[0].cells()[device_name].vtap();
+    window.tableViews()[2].cells()[device_name].scrollToVisible();
+    window.tableViews()[2].cells()[device_name].vtap();
     if (window.switches()[0].value() == 0) {
         window.switches()[0].setValue(1);
     }
@@ -177,6 +179,7 @@ function control_light_RGB(window,device_name,change_value) {
 }
 
 // Setting-Up Gateway-Bridge
+
 function device_addBridge(window,device_name) {
     window.navigationBar().leftButton().vtap();
     window.tableViews()[0].cells()["Developer options"].scrollToVisible();
@@ -198,10 +201,12 @@ function device_addBridge(window,device_name) {
             break;
         }
     }
-    target.delay(20);
+    target.delay(10);
     window.navigationBar().leftButton().vtap();
     window.navigationBar().rightButton().vtap();
     window.tableViews()[0].cells()["CSRmesh devices"].vtap();
     target.delay(5);
 }
+
+
 
