@@ -178,6 +178,50 @@ function control_light_RGB(window,device_name,change_value) {
     window.navigationBar().leftButton().vtap();
 }
 
+//Controlling heater temperature
+function control_temp_heater(window,change_value) {
+    //Creating area with one heater and sensor
+    window.navigationBar().leftButton().vtap();
+    window.tableViews()[0].cells()["Areas"].vtap();
+    window.toolbars()[2].buttons()["ADD"].vtap();
+    window.textFields()["areaTitle"].vtap();
+    target.delay(2);
+    window.textFields()["areaTitle"].setValue("Temperature control area");
+    window.tableViews()[2].groups()["DEVICES"].buttons()["EDIT"].vtap();
+    //Device_name of heater/sensor as mentioned in config file
+    window.tableViews()[2].cells()[device_name3].vtap();
+    window.tableViews()[2].cells()[device_name4].vtap();
+    window.navigationBar().rightButton().vtap();
+    target.delay(8);
+    window.navigationBar().rightButton().vtap();
+    target.delay(3);
+    //Controlling temperature
+    //If device assignment to area doesn't work mention the area name which already has heater and sensor
+    window.tableViews()[2].cells()["Temperature control area"].vtap();
+    act_temp = window.staticTexts()[4].name();
+    UIALogger.logMessage("Actual Temperature: "+act_temp);
+    var_temp = window.staticTexts()[3].name();
+    var_temp=var_temp.split(" ")
+    if (change_value == var_temp[0]) {
+        UIALogger.logMessage("No change required, temperature alerady set at desired value");
+    }
+    if (change_value < var_temp[0]) {
+        while(window.staticTexts()[3].name() != change_value+" °C") {
+            window.buttons()[3].vtap();
+            UIALogger.logMessage("Changed value: "+window.staticTexts()[3].name());
+        }
+        window.buttons()[2].vtap();
+    }
+    if (change_value > var_temp[0]) {
+        while(window.staticTexts()[3].name() != change_value+" °C") {
+            window.buttons()[2].vtap();
+            UIALogger.logMessage("Changed value: "+window.staticTexts()[3].name());
+        }
+        window.buttons()[3].vtap();
+    }
+    target.delay(2);
+}
+
 // Setting-Up Gateway-Bridge
 
 function device_addBridge(window,device_name) {
