@@ -252,5 +252,61 @@ function device_addBridge(window,device_name) {
     target.delay(5);
 }
 
+//Create Light color Event
+
+function create_light_color_event(window,event_name,device_name1,device_name2,light_W,light_RGB,event_date,event_time,repetition_flag) {
+    window.navigationBar().leftButton().vtap();
+    window.tableViews()[0].cells()["Events"].vtap();
+    window.toolbars()[2].buttons()["Add"].vtap();
+    target.delay(2);
+    target.frontMostApp().actionSheet().collectionViews()[0].cells()["Light Color Event"].buttons()["Light Color Event"].tap();
+    //window.scrollViews()[0].textFields()[0].vtap();
+    window.scrollViews()[0].textFields()[0].setValue(event_name);
+    window.toolbars()[2].buttons()["Next"].vtap();
+    if (window.scrollViews()[0].switches()[0].value() == 0) {
+        window.scrollViews()[0].switches()[0].setValue(1);
+    }
+    //.scrollViews()[0].switches()[0].setValue(0);
+    window.scrollViews()[0].buttons()["W"].vtap();
+    UIALogger.logMessage("Drag Value "+light_W/100);
+    UIALogger.logMessage("Current Value "+ window.popover().sliders()[0].value());
+    try {
+        window.popover().sliders()[0].dragToValue(light_W/100);
+    }
+    catch(e) {
+        UIALogger.logMessage("Unable to drag, value after dragging "+ window.popover().sliders()[0].value());
+    }
+    window.popover().buttons()["Done"].vtap();
+    window.scrollViews()[0].buttons()["RGB"].vtap();
+    change_value_R = light_RGB.split("_")[0]
+    change_value_G = light_RGB.split("_")[1]
+    change_value_B = light_RGB.split("_")[2]
+    
+    UIALogger.logMessage("Values "+ change_value_R +" " + change_value_G + " "+ change_value_B)
+    window.popover().textFields()[0].setValue(change_value_R);
+    window.popover().textFields()[1].setValue(change_value_G);
+    window.popover().textFields()[2].setValue(change_value_B);
+    window.popover().buttons()["Done"].vtap();
+    window.toolbars()[2].buttons()["Next"].vtap();
+    window.scrollViews()[0].tableViews()[0].cells()[device_name1].vtap();
+    window.scrollViews()[0].tableViews()[0].cells()[device_name2].vtap();
+    window.toolbars()[2].buttons()["Next"].vtap();
+    window.scrollViews()[0].tableViews()[1].cells()["Time"].vtap();
+    event_time_hr=event_time.split("-")[0];
+    event_time_mm=event_time.split("-")[1];
+    event_time_ampm=event_time.split("-")[2];
+    window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[0].selectValue(event_date);
+    window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[1].selectValue(event_time_hr);
+    window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[2].selectValue(event_time_mm);
+    window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[3].selectValue(event_time_ampm);
+    if (repetition_flag == 1)
+    {
+    window.scrollViews()[0].tableViews()[1].cells()["Repeat"].vtap();
+    window.popover().segmentedControls()[0].buttons()["Daily"].vtap();
+    window.popover().buttons()["Done"].vtap();
+    }
+    window.toolbars()[2].buttons()["Validate"].vtap();
+    target.delay(5);
+}
 
 
