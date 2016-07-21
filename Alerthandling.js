@@ -12,10 +12,10 @@ UIATarget.onAlert = function onAlert(alert)
             UIALogger.logWarning("Alert with title '" + title + "' encountered!");
             return false;
     	}
-i=0
-try {
+UIALogger.logMessage("Inside Alert Handling")
+    i=0
     //Reduce the value from i<10 to i<5, depending on the time as alert comes up
-    while(i<1) {
+    while(i<5) {
         if (target.frontMostApp().alert().checkIsValid()) {
             target.frontMostApp().alert().defaultButton().vtap();
             break;
@@ -24,6 +24,3 @@ try {
             i++;
         }
     }
-} catch(e) {
-    UIALogger.logDebug("Exception occured"+e);
-}

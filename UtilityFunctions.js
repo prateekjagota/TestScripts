@@ -267,9 +267,11 @@ function create_light_color_event(window,event_name,device_name1,device_name2,li
     }
     catch(e) {}
     window.toolbars()[2].buttons()["Next"].vtap();
+    try {
     if (window.scrollViews()[0].switches()[0].value() == 0) {
         window.scrollViews()[0].switches()[0].setValue(1);
     }
+    } catch(e) {}
     //.scrollViews()[0].switches()[0].setValue(0);
     window.scrollViews()[0].buttons()["W"].vtap();
     UIALogger.logMessage("Drag Value "+light_W/100);
