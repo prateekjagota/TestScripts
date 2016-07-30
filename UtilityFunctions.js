@@ -397,3 +397,38 @@ function create_heating_event(window,event_name,heater_name,set_temp,event_date,
     window.toolbars()[2].buttons()["Validate"].vtap();
     target.delay(3);
 }
+
+//Delete all events
+function delete_all_events(window) {
+    window.navigationBar().leftButton().vtap();
+    window.tableViews()[0].cells()["Events"].vtap();
+    target.delay(2);
+    var events_length = window.tableViews()[2].cells().length;
+    UIALogger.logDebug("Events length: "+events_length);
+    if (events_length > 0) {
+        for (var i =0;i < events_length;i++) {
+            window.tableViews()[2].cells()[0].vtap();
+            window.navigationBar().rightButton().vtap();
+            window.toolbar().buttons()["Delete"].vtap();
+        }
+    }
+}
+
+//Edit event date and time
+function edit_event_date_time(window,event_name,event_new_date,event_new_time) {
+    window.navigationBar().leftButton().vtap();
+    window.tableViews()[0].cells()["Events"].vtap();
+    window.tableViews()[2].cells()[event_name].vtap();
+    window.navigationBar().rightButton().vtap();
+    window.tableViews()[2].cells()["Time"].scrollToVisible();
+    window.tableViews()[2].cells()["Time"].vtap();
+    event_time_hr=event_new_time.split("-")[0];
+    event_time_mm=event_new_time.split("-")[1];
+    event_time_ampm=event_new_time.split("-")[2];
+    window.tableViews()[2].cells()[4].pickers()[0].wheels()[0].selectValue(event_new_date);
+    window.tableViews()[2].cells()[4].pickers()[0].wheels()[1].selectValue(event_time_hr);
+    window.tableViews()[2].cells()[4].pickers()[0].wheels()[2].selectValue(event_time_mm);
+    window.tableViews()[2].cells()[4].pickers()[0].wheels()[3].selectValue(event_time_ampm);
+    window.navigationBar().leftButton().vtap();
+    window.navigationBar().leftButton().vtap();
+}

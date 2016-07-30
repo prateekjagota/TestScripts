@@ -7,7 +7,7 @@
 
 test("Clean up devices and areas screen", function(target, app) {
      var window = app.mainWindow();
-     var device_length = window.tableViews()[0].cells().length;
+     /*var device_length = window.tableViews()[0].cells().length;
      UIALogger.logDebug("Device length: "+device_length);
      if (device_length > 0) {
      for (var i =0;i < device_length;i++) {
@@ -21,7 +21,7 @@ test("Clean up devices and areas screen", function(target, app) {
      UIALogger.logDebug("Device deleted: "+ (i+1));
      target.delay(2);
      }
-     }
+     }*/
      //Deleting all areas
      window.navigationBar().leftButton().vtap();
      window.tableViews()[0].cells()["Areas"].vtap();
@@ -39,4 +39,9 @@ test("Clean up devices and areas screen", function(target, app) {
      }
      UIALogger.logMessage("Creating areas as part of Test Bed setup..")
      add_areas(window);
+     });
+
+test("Delete all events", function(target, app) {
+   var window = app.mainWindow();
+     delete_all_events(window);
      });
