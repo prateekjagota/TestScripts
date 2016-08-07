@@ -40,8 +40,8 @@ function api_clicks(window,api_version) {
 test("To test clicking of APIs", function(target, app) {
      var window = app.mainWindow();
      api_clicks(window,"1.3");
-     //api_clicks(window,"2.0.1");
-     //api_clicks(window,"2.1");
+     api_clicks(window,"2.0.1");
+     api_clicks(window,"2.1");
      //API Tests for 1.3
      /*icks(window,"1.3","ACTIONMODELAPI","deleteAction");
      api_clicks(window,"1.3","ACTIONMODELAPI","getAction");

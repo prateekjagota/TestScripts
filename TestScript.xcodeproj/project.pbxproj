@@ -9,40 +9,44 @@
 /* Begin PBXFileReference section */
 		6E4760741CE227F300562973 /* tuneup_js */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tuneup_js; sourceTree = "<group>"; };
 		6E4760751CE2324F00562973 /* test.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		6E709F1D1CF99EB500023DDD /* UtilityFunctions.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UtilityFunctions.js; sourceTree = "<group>"; };
 		6E846B3B1CE71CA4007BBFBF /* sanity.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = sanity.sh; sourceTree = "<group>"; };
 		6E846B431CE72BC7007BBFBF /* test_execute.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = test_execute.js; sourceTree = "<group>"; };
-		6E84FEE91D37E57700166229 /* testEvents.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testEvents.js; sourceTree = "<group>"; };
 		6E98508F1CE4C6D0001C70B0 /* testBasicNavigation.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testBasicNavigation.js; sourceTree = "<group>"; };
-		6EA8F5751D4134CD00FDEC36 /* Alerthandling.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Alerthandling.js; sourceTree = "<group>"; };
 		6ECC2C701CE37EF9005C20CF /* config.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = config.js; sourceTree = "<group>"; };
 		6ECC2C711CE37F9C005C20CF /* testmodArea.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testmodArea.js; sourceTree = "<group>"; };
 		6ECD0DF31CEE14960032A6E4 /* testAppVersion.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testAppVersion.js; sourceTree = "<group>"; };
 		6ECD0DF41CEE163A0032A6E4 /* testDevOps.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testDevOps.js; sourceTree = "<group>"; };
-		6EFA0F611CF0AAD100ECD33D /* testCleanUp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testCleanUp.js; sourceTree = "<group>"; };
-		6EFA0F621CF0AB0C00ECD33D /* temp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = temp.js; path = ../temp.js; sourceTree = "<group>"; };
-		6EFA0F631CF0D01000ECD33D /* testDevices.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testDevices.js; sourceTree = "<group>"; };
 		6EFBA3A81CECB24000AAB6A5 /* testmodPlaces.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testmodPlaces.js; sourceTree = "<group>"; };
+		9F021F501D55B74000BBAE0C /* testDeviceAPI.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testDeviceAPI.js; sourceTree = "<group>"; };
+		9F626FE31CF479A4001F3CB8 /* testbridge.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testbridge.js; sourceTree = "<group>"; };
+		9FB87B041CF041F500B5DAB0 /* temp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = temp.js; sourceTree = "<group>"; };
+		9FB87B051CF17B3900B5DAB0 /* testCleanUp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testCleanUp.js; sourceTree = "<group>"; };
+		9FB87B061CF17B3900B5DAB0 /* testDevices.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testDevices.js; sourceTree = "<group>"; };
+		9FB884F31CFF185400A74D50 /* UtilityFunctions.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = UtilityFunctions.js; sourceTree = "<group>"; };
+		9FE008ED1D39F8AB0020DE11 /* Alerthandling.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Alerthandling.js; sourceTree = "<group>"; };
+		9FE008EE1D39FC580020DE11 /* testEvents.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = testEvents.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		6E47606D1CE2279E00562973 = {
 			isa = PBXGroup;
 			children = (
-				6EA8F5751D4134CD00FDEC36 /* Alerthandling.js */,
 				6E4760751CE2324F00562973 /* test.js */,
+				9F626FE31CF479A4001F3CB8 /* testbridge.js */,
+				9FB87B041CF041F500B5DAB0 /* temp.js */,
+				9FE008ED1D39F8AB0020DE11 /* Alerthandling.js */,
 				6E846B431CE72BC7007BBFBF /* test_execute.js */,
+				9FB884F31CFF185400A74D50 /* UtilityFunctions.js */,
 				6ECC2C701CE37EF9005C20CF /* config.js */,
+				9FB87B051CF17B3900B5DAB0 /* testCleanUp.js */,
+				9FB87B061CF17B3900B5DAB0 /* testDevices.js */,
+				9FE008EE1D39FC580020DE11 /* testEvents.js */,
 				6ECC2C711CE37F9C005C20CF /* testmodArea.js */,
-				6E709F1D1CF99EB500023DDD /* UtilityFunctions.js */,
-				6EFA0F611CF0AAD100ECD33D /* testCleanUp.js */,
 				6EFBA3A81CECB24000AAB6A5 /* testmodPlaces.js */,
-				6EFA0F631CF0D01000ECD33D /* testDevices.js */,
-				6E84FEE91D37E57700166229 /* testEvents.js */,
 				6E98508F1CE4C6D0001C70B0 /* testBasicNavigation.js */,
 				6ECD0DF31CEE14960032A6E4 /* testAppVersion.js */,
 				6ECD0DF41CEE163A0032A6E4 /* testDevOps.js */,
-				6EFA0F621CF0AB0C00ECD33D /* temp.js */,
+				9F021F501D55B74000BBAE0C /* testDeviceAPI.js */,
 				6E846B3B1CE71CA4007BBFBF /* sanity.sh */,
 				6E4760741CE227F300562973 /* tuneup_js */,
 			);
@@ -54,7 +58,7 @@
 		6E47606E1CE2279E00562973 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0730;
 			};
 			buildConfigurationList = 6E4760711CE2279E00562973 /* Build configuration list for PBXProject "TestScript" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -75,6 +79,8 @@
 		6E4760721CE2279E00562973 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
