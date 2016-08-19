@@ -307,6 +307,7 @@ function create_light_color_event(window,event_name,device_name1,device_name2,li
     window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[3].selectValue(event_time_ampm);
     if (repetition_flag == 1)
     {
+    window.scrollViews()[0].tableViews()[1].cells()["Repeat"].scrollToVisible();
     window.scrollViews()[0].tableViews()[1].cells()["Repeat"].vtap();
     window.popover().segmentedControls()[0].buttons()["Daily"].vtap();
     window.popover().buttons()["Done"].vtap();
@@ -348,6 +349,7 @@ function create_light_power_event(window,event_name,device_name1,device_name2,va
     window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[3].selectValue(event_time_ampm);
     if (repetition_flag == 1)
     {
+        window.scrollViews()[0].tableViews()[1].cells()["Repeat"].scrollToVisible();
         window.scrollViews()[0].tableViews()[1].cells()["Repeat"].vtap();
         window.popover().segmentedControls()[0].buttons()["Daily"].vtap();
         window.popover().buttons()["Done"].vtap();
@@ -390,6 +392,7 @@ function create_heating_event(window,event_name,heater_name,set_temp,event_date,
     window.scrollViews()[0].tableViews()[1].cells()[1].pickers()[0].wheels()[3].selectValue(event_time_ampm);
     if (repetition_flag == 1)
     {
+        window.scrollViews()[0].tableViews()[1].cells()["Repeat"].scrollToVisible();
         window.scrollViews()[0].tableViews()[1].cells()["Repeat"].vtap();
         window.popover().segmentedControls()[0].buttons()["Daily"].vtap();
         window.popover().buttons()["Done"].vtap();
